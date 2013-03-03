@@ -5,7 +5,7 @@
 [[ -z $RECPT1 ]] && RECPT1=recpt1
 [[ -z $EPGDUMP ]] && EPGDUMP=epgdump
 
-SCAN_CHANNELS="`seq 13 63`"
+SCAN_CHANNELS="`seq 13 62`"
 SCAN_TIME=5
 TMP_TS=tmp.ts
 
