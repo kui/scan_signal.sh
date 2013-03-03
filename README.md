@@ -11,6 +11,7 @@ UHF チャンネルのスキャンをする。
 ```sh
 $ ./scan_signal.sh        # UHF チャンネルすべてをスキャンする
 $ ./scan_signal.sh 16     # UHF 16 だけスキャンする
+$ ./scan_signal.sh 16 22  # UHF 16 と 22 をスキャンする
 ```
 
 `PATH` にない、`recpt1` とか `epgdump` を使うときは:

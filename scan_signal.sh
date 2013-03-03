@@ -10,13 +10,16 @@ SCAN_TIME=5
 TMP_TS=tmp.ts
 
 scan_all(){
-    for ch in $SCAN_CHANNELS
-    do
-        scan $ch
-    done
+    scan $SCAN_CHANNELS
 }
 
 scan(){
+    for ch in $@
+    do _scan $ch
+    done
+}
+
+_scan(){
     echo === $1 ch ===
     if $RECPT1 --b25 --strip $1 $SCAN_TIME $TMP_TS 2>&1 | grep '^C/N ='
     then
@@ -30,7 +33,7 @@ scan(){
 which $EPGDUMP >/dev/null || \
     echo "警告: epgdump($EPGDUMP) が見つかりません。チャンネル名を表示しません。"
 
-if [[ -n $1 ]]
-then scan $1
-else scan_all
+if [[ $# -eq 0 ]]
+then scan_all
+else scan $@
 fi
